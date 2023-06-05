@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="fastRequestCurrentParamGroup">
+    <option name="className" value="com.codeLamb.controller.UserController" />
+    <option name="filePath" value="" />
+    <option name="method" value="hello" />
+    <option name="module" value="book-apl" />
+    <option name="originUrl" value="/hello" />
+    <option name="returnDocument" value="&quot;No comment,Type =String&quot;" />
+    <option name="url" value="/hello" />
+  </component>
+</project>
