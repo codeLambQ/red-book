@@ -37,6 +37,9 @@ public class GraceExceptionHandler {
         return GraceJSONResult.errorMap(map);
     }
 
+    /**
+     *  文件超出 2MB 打印异常
+     */
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     @ResponseBody
     public GraceJSONResult returnMaxUploadSize(MaxUploadSizeExceededException e) {

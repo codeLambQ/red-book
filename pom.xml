@@ -15,7 +15,6 @@
         <module>book-service</module>
         <module>book-mapper</module>
         <module>book-apl</module>
-        <module>mybatis-generator-for-imooc</module>
     </modules>
 
     <parent>
@@ -85,11 +84,11 @@
                 <version>${pagehelper-spring-boot-starter.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.squareup.okhttp3</groupId>-->
+<!--                <artifactId>okhttp</artifactId>-->
+<!--                <version>${okhttp.version}</version>-->
+<!--            </dependency>-->
 
             <!-- jackson -->
             <dependency>

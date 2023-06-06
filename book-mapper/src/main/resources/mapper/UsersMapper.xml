@@ -22,4 +22,16 @@
     <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
     <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="searchByMobile" parameterType="String" resultMap="BaseResultMap">
+    select * from `imooc-red-book-dev`.users where mobile = #{mobile} limit 1
+  </select>
+
+  <select id="searchByNickname" parameterType="String" resultMap="BaseResultMap">
+    select * from `imooc-red-book-dev`.users where nickname = #{nickname} limit 1
+  </select>
+
+  <select id="searchByImoocNum" parameterType="String" resultMap="BaseResultMap">
+    select * from `imooc-red-book-dev`.users where imooc_num = #{imoocNum} limit 1
+  </select>
 </mapper>

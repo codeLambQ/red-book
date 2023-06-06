@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.codeLamb.mapper.VlogMapperCustom" >
+    <select id="getIndexVlog" parameterType="map" resultType="com.codeLamb.VO.IndexVlogVO">
+        SELECT
+            v.id AS vlogId,
+            v.vloger_id AS  vlogerId,
+            u.face as vlogerFace,
+            u.nickname AS vlogerName,
+            v.title AS content,
+            v.url as url,
+            v.cover as cover,
+            v.width as width,
+            v.height as height,
+            v.like_counts as likeCounts,
+            v.comments_counts as commentsCounts,
+            v.is_private as isPrivate
+        FROM vlog v
+                 INNER JOIN users u ON v.vloger_id = u.id
+        WHERE v.is_private = 0 
+          <if test="paramMap.search != null and paramMap.search != ''">
+              AND v.title like '%${paramMap.search}%'
+          </if>
+        ORDER BY v.created_time DESC
+    </select>
+
+    <select id="getVlogDetailById" parameterType="map" resultType="com.codeLamb.VO.IndexVlogVO">
+        SELECT v.id              AS vlogId,
+               v.vloger_id       AS vlogerId,
+               u.face            as vlogerFace,
+               u.nickname        AS vlogerName,
+               v.title           AS content,
+               v.url             as url,
+               v.cover           as cover,
+               v.width           as width,
+               v.height          as height,
+               v.like_counts     as likeCounts,
+               v.comments_counts as commentsCounts,
+               v.is_private      as isPrivate
+        FROM vlog v
+                 INNER JOIN
+             users u
+             ON
+                 v.vloger_id = u.id
+        WHERE v.id = #{paramMap.vlogId}
+    </select>
+    
+    <update id="updateVlogToPrivateOrPublic" parameterType="map" >
+        update vlog set is_private = #{paramMap.yesOrNo} where vloger_id = #{paramMap.userId} and id = #{paramMap.vlogId}
+    </update>
+
+    <select id="getMyVlogByUserId" parameterType="map" resultType="com.codeLamb.pojo.Vlog">
+        select * from vlog where vloger_id = #{paramMap.userId} and is_private = #{paramMap.yesOrNo}
+    </select>
+</mapper>

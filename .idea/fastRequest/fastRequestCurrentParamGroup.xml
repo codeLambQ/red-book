@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="fastRequestCurrentParamGroup">
-    <option name="className" value="com.codeLamb.controller.UserController" />
+    <option name="className" value="com.codeLamb.controller.PassPortController" />
     <option name="filePath" value="" />
-    <option name="method" value="hello" />
+    <option name="method" value="getSmsCode" />
+    <option name="methodType" value="POST" />
     <option name="module" value="book-apl" />
-    <option name="originUrl" value="/hello" />
-    <option name="returnDocument" value="&quot;No comment,Type =String&quot;" />
-    <option name="url" value="/hello" />
+    <option name="originUrl" value="/passport/getSMSCode" />
+    <option name="requestParamMap">
+      <map>
+        <entry key="mobile">
+          <value>
+            <Object />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="returnDocument" value="{&quot;status&quot;:&quot;No comment,Type =Number&quot;,&quot;msg&quot;:&quot;No comment,Type =String&quot;,&quot;success&quot;:&quot;No comment,Type =Boolean&quot;,&quot;data&quot;:{}}" />
+    <option name="url" value="/passport/getSMSCode" />
   </component>
 </project>

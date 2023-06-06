@@ -12,6 +12,18 @@ spring:
       max-file-size: 2MB # 文件上传打下限制
       max-request-size: 2MB # 文件最大请求限制，用于批量上传
 
+  redis:
+    database: 0
+    host: 39.107.240.179
+    port: 6379
+#    password: abc123456
+    jedis:
+      pool:
+        max-active: 1000
+        max-wait: -1ms
+        max-idle: 16
+        min-idle: 8
+
 # 日志级别
 logging:
   level:
@@ -21,6 +33,8 @@ logging:
 mybatis:
   type-aliases-package: com.imooc.pojo       # 所有pojo类所在的包路径
   mapper-locations: classpath:mapper/*.xml    # mapper映射文件
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 通用mapper工具的配置
 mapper:
@@ -28,8 +42,18 @@ mapper:
   not-empty: false                            # 在进行数据库操作的时候，username != null 是否会追加 username != ''
   identity: MYSQL
 
+
 # 分页插件助手的配置
 pagehelper:
   helper-dialect: MYSQL
   support-methods-arguments: true
+
+minio:
+  endpoint: http://192.168.56.1:9000
+  fileHost: http://192.168.56.1:9000
+  bucketName: imooc
+  accessKey: root
+  secretKey: abc123456
+  imgSize: 1024
+  fileSize: 1024
 
